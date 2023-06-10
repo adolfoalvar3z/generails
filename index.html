@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apoyo para generar modelos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <img src="logo.png" width="50px"> <span class="text-white">ALVAR3Z</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scaffold.html">Scaffold</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Modelos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="text-center">Formulario de apoyo para generar Controller</h2>
+        <div class="mb-3">
+            <label for="controllerName" class="form-label">Nombre del controlador:</label>
+            <input type="text" id="controllerName" class="form-control" />
+        </div>
+        <div id="methodsContainer" class="mb-3">
+            <div class="method-input-group">
+                <label class="form-label">Nombre del método 1:</label>
+                <div class="d-flex">
+                    <input type="text" class="form-control method" />
+                    <button class="btn btn-danger delete-method">Eliminar</button>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button id="addMethodButton" class="btn btn-primary">Agregar otro</button>
+        </div>
+        <div class="mb-3">
+            <h3>Resultado:</h3>
+            <p id="generateCommand"></p>
+        </div>
+        <div class="mb-3">
+            <h3 class="text-danger">Resultado de eliminación:</h3>
+            <p class="text-danger">rails destroy controller <span id="controllerNameResult"></span></p>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="navbar fixed-bottom bg-body-tertiary">
+            <div class="container-fluid">
+                <p class="text-center footer">Bootcamp Ruby on Rails 2023, &lt;3 Alvar3z</p>
+            </div>
+        </nav>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Actualizar resultado al presionar una tecla
+
+            $(document).on('keyup change', '#controllerName, .method', function () {
+                updateResult();
+            });
+
+            var methodsCount = 1;
+            $("#addMethodButton").click(function () {
+                methodsCount++;
+                var newMethod = '<div class="method-input-group"><label class="form-label">Nombre del método ' + methodsCount + ':</label><div class="d-flex"><input type="text" class="form-control method" /><button class="btn btn-danger delete-method">Eliminar</button></div></div>';
+                $("#methodsContainer").append(newMethod);
+                updateResult();
+            });
+
+            // Eliminar método
+            $(document).on('click', '.delete-method', function () {
+                $(this).closest('.method-input-group').remove();
+                updateResult();
+            });
+
+            function updateResult() {
+                var controllerName = $("#controllerName").val();
+                controllerName = controllerName.charAt(0).toUpperCase() + controllerName.slice(1);
+
+                var methods = [];
+                $(".method").each(function () {
+                    methods.push($(this).val());
+                });
+
+                var generateCommand = `rails generate controller ${controllerName} ${methods.join(' ')}`;
+                $('#generateCommand').text(generateCommand);
+
+                var destroyCommand = `rails destroy controller ${controllerName}`;
+                $('#controllerNameResult').text(controllerName);
+            }
+
+        });
+    </script>
+</body>
+</html>

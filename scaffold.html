@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <img src="logo.png" width="50px"> <span class="text-white">ALVAR3Z</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="scaffold.html">Scaffold</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Modelos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h2 class="text-center">Formulario de apoyo para generar Scaffold</h2>
+    <div class="mb-3">
+      <label for="controllerName" class="form-label">Nombre del Scaffold:</label>
+      <input type="text" id="controllerName" class="form-control" />
+    </div>
+    <div id="methodsContainer" class="mb-3">
+      <div class="method-input-group">
+        <label class="form-label">Nombre del método 1:</label>
+        <div class="d-flex">
+          <input type="text" class="form-control method" />
+          <select class="form-select selectpicker mx-2">
+            <option value="primary_key">Primary Key</option>
+            <option value="string">String</option>
+            <option value="text">Text</option>
+            <option value="integer">Integer</option>
+            <option value="bigint">Bigint</option>
+            <option value="float">Float</option>
+            <option value="decimal">Decimal</option>
+            <option value="numeric">Numeric</option>
+            <option value="datetime">Datetime</option>
+            <option value="time">Time</option>
+            <option value="date">Date</option>
+            <option value="binary">Binary</option>
+            <option value="blob">Blob</option>
+            <option value="boolean">Boolean</option>
+          </select>
+          <button class="btn btn-danger delete-method">Eliminar</button>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <button id="addMethodButton" class="btn btn-primary">Agregar otro</button>
+    </div>
+    <div class="mb-3">
+      <h3>Resultado:</h3>
+      <p id="generateCommand"></p>
+    </div>
+    <div class="mb-3">
+      <h3 class="text-danger">Resultado de eliminación:</h3>
+      <p class="text-danger">rails destroy controller <span id="controllerNameResult"></span></p>
+    </div>
+  </div>
+<div>
+</div>
+
+
+  <footer>
+    <nav class="navbar fixed-bottom bg-body-tertiary">
+      <div class="container-fluid">
+        <p class="text-center footer">Bootcamp Ruby on Rails 2023, &lt;3 Alvar3z</p>
+      </div>
+    </nav>
+  </footer>
+
+  <div class="container">
+    <h2>Información sobre tipos de datos en Ruby on Rails</h2>
+    <div class="post-it">
+      <h4>:primary_key</h4>
+      <p>Este tipo de dato se utiliza para definir una clave primaria en una tabla de la base de datos. Generalmente, se genera automáticamente cuando se crea una migración para un modelo.</p>
+    </div>
+    <div class="post-it">
+      <h4>:string</h4>
+      <p>Representa una secuencia de caracteres. Se utiliza para almacenar texto corto, como nombres, títulos o descripciones breves.</p>
+    </div>
+    <div class="post-it">
+      <h4>:text</h4>
+      <p>Es similar a :string, pero está diseñado para almacenar texto más largo, como descripciones extensas o contenido de blogs.</p>
+    </div>
+    <div class="post-it">
+      <h4>:integer</h4>
+      <p>Representa números enteros. Se utiliza para almacenar valores numéricos sin decimales, como identificadores únicos o contadores.</p>
+    </div>
+    <div class="post-it">
+      <h4>:bigint</h4>
+      <p>Similar a :integer, pero se utiliza para almacenar números enteros más grandes, generalmente de mayor tamaño que los soportados por :integer.</p>
+    </div>
+    <div class="post-it">
+      <h4>:float</h4>
+      <p>Representa números de punto flotante. Se utiliza para almacenar valores numéricos con decimales, como precios o coordenadas.</p>
+    </div>
+    <div class="post-it">
+      <h4>:decimal</h4>
+      <p>Almacena números decimales precisos con una precisión fija. Se utiliza para datos financieros o cualquier otra situación en la que se requiera una precisión exacta.</p>
+    </div>
+    <div class="post-it">
+      <h4>:numeric</h4>
+      <p>Es similar a :decimal, pero puede almacenar tanto números enteros como decimales.</p>
+    </div>
+    <div class="post-it">
+      <h4>:datetime</h4>
+      <p>Almacena una fecha y hora, incluyendo información de año, mes, día, hora, minuto y segundo.</p>
+    </div>
+    <div class="post-it">
+      <h4>:time</h4>
+      <p>Almacena solo la información de tiempo, sin incluir la fecha.</p>
+    </div>
+    <div class="post-it">
+      <h4>:date</h4>
+      <p>Almacena solo la información de fecha, sin incluir la hora.</p>
+    </div>
+    <div class="post-it">
+      <h4>:binary</h4>
+      <p>Representa datos binarios, como imágenes o archivos. Se utiliza para almacenar datos en forma binaria, como imágenes o archivos adjuntos.</p>
+    </div>
+    <div class="post-it">
+      <h4>:blob</h4>
+      <p>Similar a :binary, se utiliza para almacenar datos binarios grandes, como archivos de imágenes o documentos.</p>
+    </div>
+    <div class="post-it">
+      <h4>:boolean</h4>
+      <p>Representa un valor lógico de verdadero o falso. Se utiliza para almacenar variables booleanas que pueden ser true o false, como banderas de activación o condiciones lógicas.</p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Actualizar resultado al presionar una tecla
+      $(document).on('keyup change', '#controllerName, .method, .form-select', function() {
+        updateResult();
+      });
+
+      // Agregar otro método
+      $('#addMethodButton').on('click', function() {
+        var methodCount = $('.method-input-group').length + 1;
+        var newMethodGroup = `
+          <div class="method-input-group">
+            <label class="form-label">Nombre del método ${methodCount}:</label>
+            <div class="d-flex">
+              <input type="text" class="form-control method" />
+              <select class="form-select selectpicker mx-2">
+                <option value="primary_key">Primary Key</option>
+                <option value="string">String</option>
+                <option value="text">Text</option>
+                <option value="integer">Integer</option>
+                <option value="bigint">Bigint</option>
+                <option value="float">Float</option>
+                <option value="decimal">Decimal</option>
+                <option value="numeric">Numeric</option>
+                <option value="datetime">Datetime</option>
+                <option value="time">Time</option>
+                <option value="date">Date</option>
+                <option value="binary">Binary</option>
+                <option value="blob">Blob</option>
+                <option value="boolean">Boolean</option>
+              </select>
+              <button class="btn btn-danger delete-method">Eliminar</button>
+            </div>
+          </div>
+        `;
+        $('#methodsContainer').append(newMethodGroup);
+        updateResult();
+      });
+
+      // Eliminar método
+      $(document).on('click', '.delete-method', function() {
+        $(this).closest('.method-input-group').remove();
+        updateResult();
+      });
+
+      // Actualizar resultado del comando
+      function updateResult() {
+        var controllerName = $('#controllerName').val().trim();
+        var methods = [];
+
+        $('.method-input-group').each(function(index) {
+          var methodName = $(this).find('.method').val().trim();
+          var dataType = $(this).find('.form-select').val();
+          if (methodName !== '') {
+            methods.push(`${methodName}:${dataType}`);
+          }
+        });
+
+        var generateCommand = `rails generate scaffold ${controllerName} ${methods.join(' ')}`;
+        $('#generateCommand').text(generateCommand);
+
+        var destroyCommand = `rails destroy scaffold ${controllerName}`;
+        $('#controllerNameResult').text(controllerName);
+      }
+    });
+  </script>
+</body>
+</html>

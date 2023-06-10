@@ -1,0 +1,138 @@
+body {
+  background-color: #f8f8f8;
+  color: #333333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 100px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #B01E23;
+  margin-bottom: 30px;
+}
+
+label {
+  color: #B01E23;
+  font-weight: bold;
+}
+
+.form-control {
+  border-color: #B01E23;
+}
+
+.btn-primary {
+  background-color: #B01E23;
+  border-color: #B01E23;
+}
+
+h3 {
+  color: #B01E23;
+  margin-top: 30px;
+}
+
+p {
+  color: #333333;
+}
+
+h3.red {
+  color: #B01E23;
+}
+
+p.red {
+  color: #B01E23;
+}
+
+/* Estilos para los select */
+.selectpicker {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #B01E23;
+  padding: 6px 12px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  font-size: 14px;
+  line-height: 1.42857143;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.selectpicker:focus {
+  border-color: #B01E23;
+  outline: 0;
+  box-shadow: none;
+}
+
+.selectpicker option {
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.selectpicker:disabled,
+.selectpicker[disabled] {
+  background-color: #f8f8f8;
+  cursor: not-allowed;
+}
+
+.selectpicker .dropdown-toggle {
+  background-color: #ffffff;
+  border-color: #B01E23;
+  color: #333333;
+  width: 100%;
+}
+
+.selectpicker .dropdown-toggle:focus {
+  background-color: #ffffff;
+  border-color: #B01E23;
+  color: #333333;
+  box-shadow: none;
+}
+
+.selectpicker .dropdown-toggle:active {
+  background-color: #ffffff;
+  border-color: #B01E23;
+  color: #333333;
+  box-shadow: none;
+}
+
+
+.navbar {
+    background-color: #B01E23;
+  }
+
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #ffffff;
+  }
+
+  .navbar-toggler {
+    border-color: #ffffff;
+  }
+
+
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #B01E23;
+    padding: 10px 0;
+    text-align: center;
+    color: #ffffff;
+  }
+
+
+  .post-it {
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
