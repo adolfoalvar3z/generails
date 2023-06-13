@@ -46,7 +46,7 @@
         </div>
         <div id="methodsContainer" class="mb-3">
             <div class="method-input-group">
-                <label class="form-label">Nombre del Atributo 1:</label>
+                <label class="form-label">Nombre de la Acción 1:</label>
                 <div class="d-flex">
                     <input type="text" class="form-control method" />
                     <button class="btn btn-danger delete-method">Eliminar</button>
@@ -85,7 +85,7 @@
             var methodsCount = 1;
             $("#addMethodButton").click(function () {
                 methodsCount++;
-                var newMethod = '<div class="method-input-group"><label class="form-label">Nombre del Atributo ' + methodsCount + ':</label><div class="d-flex"><input type="text" class="form-control method" /><button class="btn btn-danger delete-method">Eliminar</button></div></div>';
+                var newMethod = '<div class="method-input-group"><label class="form-label">Nombre de la Acción ' + methodsCount + ':</label><div class="d-flex"><input type="text" class="form-control method" /><button class="btn btn-danger delete-method">Eliminar</button></div></div>';
                 $("#methodsContainer").append(newMethod);
                 updateResult();
             });
